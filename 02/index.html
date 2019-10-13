@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Knowlege-sharing-Vue</title>
+</head>
+<style>
+    #app {
+        display: grid;
+        justify-items: center;
+    }
+
+    form, .form-item {
+        display: grid;
+        grid-row-gap: 20px;
+    }
+
+    input[type="checkbox"] {
+        margin: 0;
+    }
+
+    input[type="text"] {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #cbcbcb;
+        outline: none;
+    }
+
+    .form-item {
+        align-items: center;
+        grid-template-columns: 30% auto;
+    }
+
+    .option {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 10px;
+    }
+    .option .item{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        align-items: center;
+    }
+    .option .item label{
+        line-height: 0;
+    }
+    .form-item labe, .form-item input {
+
+    }
+    .result{
+      width: 15%;
+    }
+    .result div+div{
+        margin-top: 10px;
+    }
+</style>
+<body>
+<div id="app">
+    <h1 v-text="message"></h1>
+    <form>
+        <div class="form-item">
+            <label for="name">Name:</label>
+            <input id="name" type="text" v-model="name"/>
+        </div>
+        <div class="form-item">
+            <label for="age">Age:</label>
+            <input id="age" type="text" v-model="age"/>
+        </div>
+        <div class="form-item">
+            <p>Habit:</p>
+            <div class="option">
+                <p class="item">
+                    <label for="music">music</label>
+                    <input id="music" value="music" type="checkbox" v-model="habit"/>
+                </p>
+                <p class="item">
+                    <label for="sport">sport</label>
+                    <input id="sport" value="sport" type="checkbox" v-model="habit"/>
+                </p>
+                <p class="item">
+                    <label for="movie">movie</label>
+                    <input id="movie" value="movie" type="checkbox" v-model="habit"/>
+                </p>
+            </div>
+        </div>
+    </form>
+    <div class="result">
+        <h3>Result:</h3>
+        <div>Name: <span v-text="name"></span></div>
+        <div>Age: <span v-text="age"></span></div>
+        <div>Habit: <span v-text="habit"></span></div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
