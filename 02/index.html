@@ -7,9 +7,14 @@
     <title>Knowlege-sharing-Vue</title>
 </head>
 <style>
-    #app {
+    .wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    #vueApp {
         display: grid;
         justify-items: center;
+        margin-right: 50px;
     }
 
     form, .form-item {
@@ -51,50 +56,92 @@
 
     }
     .result{
-      width: 15%;
+
     }
     .result div+div{
         margin-top: 10px;
     }
+    h1{
+        text-align: center;
+    }
 </style>
 <body>
-<div id="app">
-    <h1 v-text="message"></h1>
-    <form>
-        <div class="form-item">
-            <label for="name">Name:</label>
-            <input id="name" type="text" v-model="name"/>
-        </div>
-        <div class="form-item">
-            <label for="age">Age:</label>
-            <input id="age" type="text" v-model="age"/>
-        </div>
-        <div class="form-item">
-            <p>Habit:</p>
-            <div class="option">
-                <p class="item">
-                    <label for="music">music</label>
-                    <input id="music" value="music" type="checkbox" v-model="habit"/>
-                </p>
-                <p class="item">
-                    <label for="sport">sport</label>
-                    <input id="sport" value="sport" type="checkbox" v-model="habit"/>
-                </p>
-                <p class="item">
-                    <label for="movie">movie</label>
-                    <input id="movie" value="movie" type="checkbox" v-model="habit"/>
-                </p>
+<div class="wrapper">
+    <div id="vueApp">
+        <h1 v-text="message"></h1>
+        <form>
+            <div class="form-item">
+                <label for="name">Name:</label>
+                <input id="name" type="text" v-model="name"/>
             </div>
+            <div class="form-item">
+                <label for="age">Age:</label>
+                <input id="age" type="text" v-model="age"/>
+            </div>
+            <div class="form-item">
+                <p>Habit:</p>
+                <div class="option">
+                    <p class="item">
+                        <label for="music">music</label>
+                        <input id="music" value="music" type="checkbox" v-model="habit"/>
+                    </p>
+                    <p class="item">
+                        <label for="sport">sport</label>
+                        <input id="sport" value="sport" type="checkbox" v-model="habit"/>
+                    </p>
+                    <p class="item">
+                        <label for="movie">movie</label>
+                        <input id="movie" value="movie" type="checkbox" v-model="habit"/>
+                    </p>
+                </div>
+            </div>
+        </form>
+        <div class="result">
+            <h3>Result:</h3>
+            <div>Name: <span v-text="name"></span></div>
+            <div>Age: <span v-text="age"></span></div>
+            <div>Habit: <span v-text="habit"></span></div>
         </div>
-    </form>
-    <div class="result">
-        <h3>Result:</h3>
-        <div>Name: <span v-text="name"></span></div>
-        <div>Age: <span v-text="age"></span></div>
-        <div>Habit: <span v-text="habit"></span></div>
+    </div>
+    <div id="jqueryApp">
+        <h1>jquery Form</h1>
+        <form>
+            <div class="form-item">
+                <label for="name2">Name:</label>
+                <input id="name2" name="name" type="text"/>
+            </div>
+            <div class="form-item">
+                <label for="age2">Age:</label>
+                <input id="age2" name="age" type="text"/>
+            </div>
+            <div class="form-item">
+                <p>Habit:</p>
+                <div class="option">
+                    <p class="item">
+                        <label for="music2">music</label>
+                        <input id="music2" name="habit" value="music" type="checkbox"/>
+                    </p>
+                    <p class="item">
+                        <label for="sport2">sport</label>
+                        <input id="sport2" name="habit" value="sport" type="checkbox"/>
+                    </p>
+                    <p class="item">
+                        <label for="movie2">movie</label>
+                        <input id="movie2" name="habit" value="movie" type="checkbox"/>
+                    </p>
+                </div>
+            </div>
+        </form>
+        <div class="result">
+            <h3>Result:</h3>
+            <div>Name: <span id="nameVal"></span></div>
+            <div>Age: <span id="ageVal"></span></div>
+            <div>Habit: <span id="habitVal"></span></div>
+        </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js"></script>
 <script src="index.js"></script>
 </body>
 </html>
